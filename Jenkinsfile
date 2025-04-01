@@ -1,3 +1,4 @@
+
  pipeline{
 
  agent any
@@ -6,13 +7,13 @@
 
  stage('Checkout'){
   steps{
-       git branch: 'main', credentialsId: 'gitCredentials', url: 'https://github.com/shashikanth-t/jenkins-ansible.git'
-       }
+       git branch: 'main', credentialsId: 'git_Credentials', url: 'https://github.com/shashikanth-t/jenkins-ansible.git'
+	}
  }
- stage('AnsibleExecution'){
+ stage('Ansible Execution'){
   steps{
-     ansiblePlaybook credentialsId: 'auser', disableHostKeyChecking: true, installation: 'ansible', inventory: 'dhost.inv', playbook: 'apache.yml', vaultTmpPath: ''  
+     ansiblePlaybook credentialsId: 'auser', disableHostKeyChecking: true, installation: 'ansible', inventory: 'dhost.inv', playbook: 'apache.yml', vaultTmpPath: ''
       }
     }
 }
- }
+}
